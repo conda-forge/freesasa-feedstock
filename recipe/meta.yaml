@@ -13,7 +13,7 @@ build:
   script_env:
     - USE_CYTHON=1
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
 
 requirements:
   build:
