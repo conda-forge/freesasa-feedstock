@@ -1,5 +1,5 @@
 {% set name = "freesasa" %}
-{% set version = "2.2.0.post3" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/freesasa-{{ version }}.tar.gz
-  sha256: db7e5c8a1deae051198d5c7e1a54f2d001b22a945b524d81cb26cacb7d6bb54f
+  sha256: 5630e65d619cf6a062028d7c6297afe8c5b18c677c75f1c32a0938399f4f6850
 
 build:
   script_env:
     - USE_CYTHON=1
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 0
 
 requirements:
   build:
