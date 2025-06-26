@@ -6,19 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/freesasa-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/freesasa-{{ version }}.tar.gz
   sha256: 5630e65d619cf6a062028d7c6297afe8c5b18c677c75f1c32a0938399f4f6850
 
 build:
   script_env:
     - USE_CYTHON=1
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - cython >=0.29.13                       # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
   host:
     - python
     - cython >=0.29.13
