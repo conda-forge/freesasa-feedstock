@@ -12,10 +12,11 @@ source:
 build:
   script_env:
     - USE_CYTHON=1
-  number: 4
 
 outputs:
   - name: {{ name|lower }}-python
+    build:
+      number: 0
     script: build_freesasa-python.sh
     requirements:
       build:
@@ -42,6 +43,7 @@ outputs:
   - name: {{ name|lower }}
     build:
       noarch: generic
+      number: 4
     requirements:
       run:
         - {{ pin_subpackage('freesasa-python', max_pin="x.x.x") }}
