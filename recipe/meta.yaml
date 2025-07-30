@@ -42,6 +42,7 @@ outputs:
   - name: {{ name|lower }}
     build:
       noarch: generic
+      skip: true  # [not linux64]
     requirements:
       run:
         - {{ pin_subpackage('freesasa-python', max_pin="x.x.x") }}
