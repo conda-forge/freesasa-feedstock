@@ -1,13 +1,20 @@
-About freesasa-feedstock
-========================
+About freesasa-python-feedstock
+===============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/freesasa-feedstock/blob/main/LICENSE.txt)
 
-Home: http://freesasa.github.io/
+Home: http://freesasa.github.io
 
 Package license: MIT
 
 Summary: Calculate solvent accessible surface areas of proteins
+
+Development: https://github.com/freesasa/freesasa-python
+
+Documentation: https://freesasa.github.io/python
+
+The module provides Python bindings for the [FreeSASA C Library](https://github.com/mittinatten/freesasa).
+
 
 Current build status
 ====================
@@ -27,38 +34,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.10.____cpython</td>
+              <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19296&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freesasa-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19296&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freesasa-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19296&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freesasa-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19296&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freesasa-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=19296&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freesasa-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freesasa-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -250,27 +229,28 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-freesasa-green.svg)](https://anaconda.org/conda-forge/freesasa) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/freesasa.svg)](https://anaconda.org/conda-forge/freesasa) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/freesasa.svg)](https://anaconda.org/conda-forge/freesasa) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/freesasa.svg)](https://anaconda.org/conda-forge/freesasa) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-freesasa--python-green.svg)](https://anaconda.org/conda-forge/freesasa-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/freesasa-python.svg)](https://anaconda.org/conda-forge/freesasa-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/freesasa-python.svg)](https://anaconda.org/conda-forge/freesasa-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/freesasa-python.svg)](https://anaconda.org/conda-forge/freesasa-python) |
 
-Installing freesasa
-===================
+Installing freesasa-python
+==========================
 
-Installing `freesasa` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `freesasa-python` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `freesasa` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `freesasa, freesasa-python` can be installed with `conda`:
 
 ```
-conda install freesasa
+conda install freesasa freesasa-python
 ```
 
 or with `mamba`:
 
 ```
-mamba install freesasa
+mamba install freesasa freesasa-python
 ```
 
 It is possible to list all of the versions of `freesasa` available on your platform with `conda`:
@@ -340,17 +320,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating freesasa-feedstock
-===========================
+Updating freesasa-python-feedstock
+==================================
 
-If you would like to improve the freesasa recipe or build a new
+If you would like to improve the freesasa-python recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/freesasa-feedstock are
+Note that all branches in the conda-forge/freesasa-python-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
