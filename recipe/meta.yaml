@@ -16,7 +16,7 @@ build:
 
 outputs:
   - name: {{ name|lower }}-python
-    script: ${PYTHON} -m pip install . -vv
+    script: build_freesasa-python.sh
     requirements:
       build:
         - {{ compiler('c') }}
