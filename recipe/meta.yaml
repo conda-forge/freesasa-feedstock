@@ -1,48 +1,64 @@
-{% set name = "freesasa" %}
+{% set name = "FreeSASA" %}
 {% set version = "2.2.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-python-split
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/freesasa-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0]|lower }}/{{ name|lower }}/freesasa-{{ version }}.tar.gz
   sha256: 5630e65d619cf6a062028d7c6297afe8c5b18c677c75f1c32a0938399f4f6850
 
 build:
   script_env:
     - USE_CYTHON=1
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython >=0.29.13                       # [build_platform != target_platform]
-    - python                                 # [build_platform != target_platform]
-  host:
-    - python
-    - cython >=0.29.13
-    - pip
-    - setuptools <72
-  run:
-    - python
+outputs:
+  - name: {{ name|lower }}-python
+    script: {{ PYTHON }} -m pip install . -vv
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ stdlib('c') }}
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - cython >=0.29.13                       # [build_platform != target_platform]
+        - python                                 # [build_platform != target_platform]
+      host:
+        - python
+        - cython >=0.29.13
+        - pip
+        - setuptools <72
+      run:
+        - python
+    test:
+      imports:
+        - freesasa
+      commands:
+        - pip check
+      requires:
+        - pip
 
-test:
-  imports:
-    - freesasa
-  commands:
-    - pip check
-  requires:
-    - pip
+  - name: {{ name|lower }}
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - {{ pin_subpackage('freesasa-python', max_pin="x.x.x") }}
+    test:
+      imports:
+        - freesasa
 
 about:
-  home: http://freesasa.github.io/
-  summary: Calculate solvent accessible surface areas of proteins
+  home: http://freesasa.github.io
+  dev_url: https://github.com/freesasa/freesasa-python
+  doc_url: https://freesasa.github.io/python
   license: MIT
+  license_family: MIT
   license_file: LICENSE.txt
+  summary: Calculate solvent accessible surface areas of proteins
+  description: |
+    The module provides Python bindings for the [FreeSASA C Library](https://github.com/mittinatten/freesasa).
 
 extra:
   recipe-maintainers:
