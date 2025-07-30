@@ -48,6 +48,10 @@ outputs:
     test:
       imports:
         - freesasa
+      commands:
+        - pip check
+      requires:
+        - pip
 
 about:
   home: http://freesasa.github.io
