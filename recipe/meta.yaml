@@ -6,16 +6,16 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0]|lower }}/{{ name|lower }}/freesasa-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0]|lower }}/{{ name|lower }}/freesasa-{{ version }}.tar.gz
   sha256: 5630e65d619cf6a062028d7c6297afe8c5b18c677c75f1c32a0938399f4f6850
 
 build:
-  number: 5
+  number: 6
 
 outputs:
   - name: {{ name|lower }}-python
     build:
-      number: 1
+      number: 2
     script: build_freesasa-python.sh
     requirements:
       build:
